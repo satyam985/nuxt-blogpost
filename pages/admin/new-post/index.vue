@@ -19,7 +19,7 @@ export default {
       axios
         .post(
           "https://nuxt-blogpost-3b1e0-default-rtdb.firebaseio.com/posts.json",
-          postData
+          { ...postData, updatedDate: new Date() }
         )
         .then((result) => console.log(result.data))
         .catch((error) => console.log(error));
@@ -37,13 +37,6 @@ export default {
   margin: auto;
   margin-top: 3rem;
 }
-
-/* .submit {
-  background-color: green;
-}
-.cancel {
-  background-color: crimson;
-} */
 @media screen and (max-width: 770px) {
   .new-post {
     width: 60%;

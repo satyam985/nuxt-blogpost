@@ -14,9 +14,9 @@
         <input v-model="editedPost.thumbnail" type="text" id="thumbnailLink" />
       </div>
       <div class="inputFields">
-        <label for="previewtext">Preview Text</label>
+        <label for="previewText">Preview Text</label>
         <textarea
-          v-model="editedPost.previewtext"
+          v-model="editedPost.previewText"
           rows="4"
           cols="50"
           id="content"
@@ -60,7 +60,7 @@ export default {
             title: "",
             thumbnail: "",
             content: "",
-            previewtext: "",
+            previewText: "",
           },
     };
   },

@@ -15,21 +15,19 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPosts: {
-          id: "1",
-          title: `First Post (ID: ${context.route.params.id})`,
-          previewText: "This is First Post",
-          author: "Satyam",
-          updatedDate: new Date(),
-          content: "Lorem Ipsum",
-          thumbnail: "https://wallpapercave.com/wp/wp7134895.png",
-        },
-      });
-    }, 1000);
+  asyncData(context) {
+    return axios
+      .get(
+        "https://nuxt-blogpost-3b1e0-default-rtdb.firebaseio.com/posts/" +
+          context.params.id +
+          ".json"
+      )
+      .then((res) => {
+        return { loadedPosts: res.data };
+      })
+      .catch((e) => context.error(e));
   },
 };
 </script>
