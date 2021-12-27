@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="_postId">
-      <AdminPostForm :post="loadedPost" @submit="onSubmitted" />
+      <AdminPostForm :post="editedPost" @submit="onSubmitted" />
     </div>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
           ".json"
       )
       .then((res) => {
-        return { loadedPosts: res.data };
+        return { editedPost: res.data };
       })
       .catch((e) => context.error(e));
   },
