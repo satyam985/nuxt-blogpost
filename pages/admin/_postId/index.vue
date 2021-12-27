@@ -1,27 +1,43 @@
 <template>
   <div class="container">
     <div class="_postId">
-      <AdminPostForm :post="loadedPost" />
+      <AdminPostForm :post="loadedPost" @submit="onSubmitted" />
     </div>
   </div>
 </template>
 
 <script>
 import AdminPostForm from "@/components/admin/AdminPostForm";
+import axios from "axios";
 export default {
   layout: "admin",
   components: {
     AdminPostForm,
   },
-  data() {
-    return {
-      loadedPost: {
-        name: "Satyam",
-        title: "React",
-        thumbnailLink: "https://wallpapercave.com/wp/wp7134895.png",
-        content: "React.js",
-      },
-    };
+  asyncData(context) {
+    return axios
+      .get(
+        "https://nuxt-blogpost-3b1e0-default-rtdb.firebaseio.com/posts/" +
+          context.params.postId +
+          ".json"
+      )
+      .then((res) => {
+        return { loadedPosts: res.data };
+      })
+      .catch((e) => context.error(e));
+  },
+  methods: {
+    onSubmitted(editedPost) {
+      axios
+        .put(
+          "https://nuxt-blogpost-3b1e0-default-rtdb.firebaseio.com/posts/" +
+            this.$route.params.postId +
+            ".json",
+          editedPost
+        )
+        .then((res) => this.$router.push("/admin"))
+        .catch((e) => console.log(e));
+    },
   },
 };
 </script>
