@@ -1,27 +1,33 @@
 <template>
   <div class="container">
     <div class="_postId">
-      <AdminPostForm :post="loadedPost" />
+      <AdminPostForm :post="editedPost" @submit="onSubmitted" />
     </div>
   </div>
 </template>
 
 <script>
 import AdminPostForm from "@/components/admin/AdminPostForm";
+import axios from "axios";
 export default {
   layout: "admin",
   components: {
     AdminPostForm,
   },
-  data() {
-    return {
-      loadedPost: {
-        name: "Satyam",
-        title: "React",
-        thumbnailLink: "https://wallpapercave.com/wp/wp7134895.png",
-        content: "React.js",
-      },
-    };
+  asyncData(context) {
+    return axios
+      .get(process.env.baseUrl + "/posts/" + context.params.postId + ".json")
+      .then((res) => {
+        return { editedPost: { ...res.data, id: context.params.postId } };
+      })
+      .catch((e) => context.error(e));
+  },
+  methods: {
+    onSubmitted(editedPost) {
+      this.$store.dispatch("editPost", editedPost).then(() => {
+        this.$router.push("/admin");
+      });
+    },
   },
 };
 </script>

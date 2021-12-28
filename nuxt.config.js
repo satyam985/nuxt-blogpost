@@ -1,14 +1,18 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "my-first-nuxt-app",
+    title: "Satyam BlogPost",
     htmlAttrs: {
       lang: "en",
     },
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      {
+        hid: "description",
+        name: "description",
+        content: "This is my first Nuxt App",
+      },
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [
@@ -37,4 +41,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  loadingIndicator: {
+    name: "circle",
+    color: "#75E6DA",
+  },
+  env: {
+    baseUrl:
+      process.env.BASE_URL ||
+      "https://nuxt-blogpost-3b1e0-default-rtdb.firebaseio.com",
+  },
 };
