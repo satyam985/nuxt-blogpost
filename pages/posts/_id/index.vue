@@ -2,8 +2,8 @@
   <div class="container">
     <div class="header">
       <h2>{{ loadedPosts.title }}</h2>
-      <p>Last updated on {{ loadedPosts.updatedDate }}</p>
-      <p>Written by {{ loadedPosts.author }}</p>
+      <p>Last updated on {{ loadedPosts.updatedDate | date }}</p>
+      <p>Written by {{ loadedPosts.name }}</p>
     </div>
     <p>{{ loadedPosts.content }}</p>
     <p>
