@@ -37,18 +37,21 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["@nuxtjs/axios"],
+
+  axios: {
+    baseURL:
+      process.env.BASE_URL ||
+      "https://nuxt-blogpost-3b1e0-default-rtdb.firebaseio.com",
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  loadingIndicator: {
-    name: "circle",
-    color: "#75E6DA",
-  },
   env: {
     baseUrl:
       process.env.BASE_URL ||
       "https://nuxt-blogpost-3b1e0-default-rtdb.firebaseio.com",
+    fbAPIKey: "AIzaSyCzO7vOSkhKhGqzbscb_29GodeAX3t3T3k",
   },
   transition: {
     name: "fade",

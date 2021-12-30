@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <div class="loginForm">
-      <form>
+      <form @submit.prevent="onSubmit">
         <div class="form-control">
           <label for="email">Email Adddress</label>
-          <input type="email" required />
+          <input type="email" required v-model="email" />
         </div>
         <div class="form-control">
           <label for="password">Password</label>
-          <input type="password" required />
+          <input type="password" required v-model="password" />
         </div>
         <div class="btn-control">
           <button type="submit" class="submit">
@@ -29,7 +29,22 @@ export default {
   data() {
     return {
       isLogin: true,
+      email: "",
+      password: "",
     };
+  },
+  methods: {
+    onSubmit() {
+      this.$store
+        .dispatch("authenticateUser", {
+          isLogin: this.isLogin,
+          email: this.email,
+          password: this.password,
+        })
+        .then(() => {
+          this.$router.push("/admin");
+        });
+    },
   },
 };
 </script>
