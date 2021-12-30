@@ -14,6 +14,7 @@
 import PostList from "@/components/posts/PostList";
 export default {
   layout: "admin",
+  middleware: "auth",
   components: {
     PostList,
   },

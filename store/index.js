@@ -98,6 +98,9 @@ const createStore = () => {
       loadedPosts(state) {
         return state.loadedPosts;
       },
+      isAuthenticate(state) {
+        return state.token != null;
+      },
     },
   });
 };
