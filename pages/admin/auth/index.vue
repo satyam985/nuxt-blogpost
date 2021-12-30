@@ -61,7 +61,7 @@ export default {
   box-shadow: 2px 4px 5px 2px #aba3a3;
   border-radius: 10px;
   border: 1px solid #aba3a3;
-  margin-top: 4rem;
+  margin-top: 8rem;
   padding: 2rem;
 }
 .form-control {
@@ -71,6 +71,14 @@ export default {
 }
 .form-control label {
   padding-bottom: 5px;
+  font-weight: 500;
+}
+.form-control input {
+  border: 1px solid #9e9e9e;
+  border-radius: 4px;
+  box-shadow: 3px 2px 3px 0px #c1c1c1;
+  outline: 0;
+  height: 1.1rem;
 }
 .btn-control {
   display: flex;
@@ -91,5 +99,10 @@ export default {
   height: 22px;
   box-shadow: 2px 2px 2px #aba3a3;
   border-radius: 5px;
+}
+@media screen and (max-width: 425px) {
+  .loginForm {
+    width: auto;
+  }
 }
 </style>

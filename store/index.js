@@ -93,6 +93,7 @@ const createStore = () => {
           })
           .then((result) => {
             vuexContext.commit("setToken", result.idToken);
+            localStorage.setItem("token", result.idToken);
             vuexContext.dispatch("setLogoutTimer", result.expiresIn * 1000);
           })
           .catch((e) => console.log(e));
