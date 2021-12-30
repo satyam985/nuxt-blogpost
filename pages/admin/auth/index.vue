@@ -102,7 +102,7 @@ export default {
 }
 @media screen and (max-width: 425px) {
   .loginForm {
-    width: auto;
+    width: 60%;
   }
 }
 </style>
