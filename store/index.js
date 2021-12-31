@@ -112,9 +112,11 @@ const createStore = () => {
         let token;
         let expirationDate;
         if (req) {
-          if (!req.header.cookie) {
+          if (!req.header) {
             return;
           }
+
+          console.log("cookie", req.header.cookie);
           const jwtCookie = req.header.cookie
             .split(";")
             .find((c) => c.trim().startsWith("jwt="));
