@@ -2,6 +2,7 @@
   <div>
     <section class="new-post">
       <nuxt-link to="/admin/new-post"><button>Create Post</button></nuxt-link>
+      <button type="button" @click="onLogout">Logout</button>
     </section>
     <section class="existing-posts">
       <h1>Existing Posts</h1>
@@ -21,6 +22,12 @@ export default {
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts;
+    },
+  },
+  methods: {
+    onLogout() {
+      this.$store.dispatch("logout");
+      this.$router.push("/admin/auth");
     },
   },
 };

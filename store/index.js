@@ -1,6 +1,6 @@
 import Vuex from "vuex";
 import axios from "axios";
-import Cookies from "js-cookie";
+import Cookie from "js-cookie";
 
 const createStore = () => {
   return new Vuex.Store({
@@ -131,10 +131,19 @@ const createStore = () => {
           expirationDate = localStorage.getItem("tokenExpiration");
         }
         if (new Date().getTime() > +expirationDate || !token) {
-          vuexContext.commit("clearToken");
+          vuexContext.dispatch("logout");
           return;
         }
         vuexContext.commit("setToken", token);
+      },
+      logout(vuexContext) {
+        vuexContext.commit("clearToken");
+        Cookie.remove("jwt");
+        Cookie.remove("expirationDate");
+        if (process.client) {
+          localStorage.removeItem("token");
+          localStorage.removeItem("tokenExpiration");
+        }
       },
     },
     getters: {
