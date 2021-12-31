@@ -11,7 +11,7 @@ import AdminPostForm from "@/components/admin/AdminPostForm";
 import axios from "axios";
 export default {
   layout: "admin",
-  middleware: "auth",
+  middleware: ["check-auth", "auth"],
   components: {
     AdminPostForm,
   },
