@@ -81,10 +81,12 @@ const createStore = () => {
         let authUrl =
           "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" +
           process.env.fbAPIKey;
+        console.log("signIn User", authUrl);
         if (!authData.isLogin) {
           authUrl =
             "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" +
             process.env.fbAPIKey;
+          console.log("signUp User", authUrl);
         }
         return this.$axios
           .$post(authUrl, {

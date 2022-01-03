@@ -46,11 +46,8 @@ export default {
 
 <style scoped>
 .image-section {
-  width: auto;
   height: 10rem;
-  margin-left: 2rem;
 }
 article {
-  padding: 2rem;
 }
 </style>

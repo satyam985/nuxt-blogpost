@@ -32,7 +32,9 @@ export default {
 </script>
 <style scoped>
 .postList {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
   justify-content: center;
   align-items: center;
   padding: 2rem 0 2rem 0;
