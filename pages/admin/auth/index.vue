@@ -4,11 +4,21 @@
       <form @submit.prevent="onSubmit">
         <div class="form-control">
           <label for="email">Email Adddress</label>
-          <input type="email" required v-model="email" />
+          <input
+            type="email"
+            required
+            v-model="email"
+            placeholder="example@gmail.com"
+          />
         </div>
         <div class="form-control">
           <label for="password">Password</label>
-          <input type="password" required v-model="password" />
+          <input
+            type="password"
+            required
+            v-model="password"
+            placeholder="minimum 6 characters"
+          />
         </div>
         <div class="btn-control">
           <button type="submit" class="submit">
