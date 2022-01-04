@@ -35,7 +35,7 @@ export default {
 .postList {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
+  grid-row-gap: 1rem;
   justify-content: center;
   align-items: center;
   padding: 2rem 0 2rem 0;
@@ -43,6 +43,12 @@ export default {
 }
 .postPreview {
   text-decoration: none;
+  transition: transform 0.6s;
+}
+.postPreview:hover {
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
+  transform: scale(1.1);
 }
 @media screen and (max-width: 900px) {
   .postList {
