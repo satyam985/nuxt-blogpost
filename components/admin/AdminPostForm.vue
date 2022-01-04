@@ -3,15 +3,20 @@
     <form @submit.prevent="onSave" id="blog">
       <div class="inputFields">
         <label for="name">Author Name</label>
-        <input v-model="editedPost.name" type="text" id="name" />
+        <input required v-model="editedPost.name" type="text" id="name" />
       </div>
       <div class="inputFields">
         <label for="title">Title</label>
-        <input v-model="editedPost.title" type="text" id="title" />
+        <input required v-model="editedPost.title" type="text" id="title" />
       </div>
       <div class="inputFields">
         <label for="thumbnailLink">Thumbnail Link</label>
-        <input v-model="editedPost.thumbnail" type="text" id="thumbnailLink" />
+        <input
+          required
+          v-model="editedPost.thumbnail"
+          type="text"
+          id="thumbnailLink"
+        />
       </div>
       <div class="inputFields">
         <label for="previewText">Preview Text</label>
@@ -20,6 +25,7 @@
           rows="4"
           cols="50"
           id="content"
+          required
         ></textarea>
       </div>
       <div class="inputFields">
@@ -29,6 +35,7 @@
           rows="4"
           cols="50"
           id="content"
+          required
         ></textarea>
       </div>
       <div class="btn">
@@ -86,6 +93,7 @@ export default {
 }
 .inputFields label {
   padding-bottom: 0.4rem;
+  font-weight: 500;
 }
 .inputFields input,
 #content {
@@ -99,5 +107,27 @@ export default {
 }
 .btn button {
   margin: 0 1rem 0 1rem;
+  border: none;
+  width: 4rem;
+  height: 1.3rem;
+  border-radius: 3px;
+}
+.submit {
+  background-color: #00dcff;
+  color: white;
+}
+.cancel {
+  background-color: rgb(255, 80, 67);
+  color: white;
+}
+.submit:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #00dcff;
+}
+.cancel:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #ff5043;
 }
 </style>

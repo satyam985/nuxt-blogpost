@@ -6,11 +6,11 @@
       <p>Written by {{ loadedPosts.name }}</p>
     </div>
     <p>{{ loadedPosts.content }}</p>
-    <p>
+    <p class="footer-content">
       Let me know what you think about the post,send a mail to <br />
-      <a href="#">satyam985@gmail.com</a>
+      <a class="author-email" href="#">satyam985@gmail.com</a>
     </p>
-    <nuxt-link to="/">Go Back</nuxt-link>
+    <nuxt-link to="/"><a class="go-back" href="#"> Go Back </a></nuxt-link>
   </div>
 </template>
 
@@ -32,10 +32,27 @@ export default {
 </script>
 
 <style scoped>
+* {
+  text-decoration: none;
+}
 .container {
   text-align: center;
 }
 .header {
   border-bottom: 2px solid rgb(206, 206, 206);
+}
+.author-email {
+  color: red;
+  font-weight: 500;
+}
+.footer-content {
+  color: grey;
+  font-size: 0.8rem;
+}
+.go-back:hover {
+  background-color: #00c3ffab;
+  color: white;
+  border-radius: 2px;
+  padding: 2px 5px;
 }
 </style>

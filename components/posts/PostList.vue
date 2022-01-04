@@ -1,6 +1,7 @@
 <template>
   <section class="postList">
     <PostPreview
+      class="postPreview"
       v-for="post in posts"
       :key="post.id"
       :id="post.id"
@@ -39,6 +40,9 @@ export default {
   align-items: center;
   padding: 2rem 0 2rem 0;
   text-align: center;
+}
+.postPreview {
+  text-decoration: none;
 }
 @media screen and (max-width: 900px) {
   .postList {

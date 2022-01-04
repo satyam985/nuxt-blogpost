@@ -25,4 +25,9 @@ export default {
 div {
   text-align: center;
 }
+h1 {
+  margin-bottom: 0;
+  /* padding-top: 0.5rem; */
+  font-size: 1.6rem;
+}
 </style>

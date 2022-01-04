@@ -1,8 +1,10 @@
 <template>
   <div>
     <section class="new-post">
-      <nuxt-link to="/admin/new-post"><button>Create Post</button></nuxt-link>
-      <button type="button" @click="onLogout">Logout</button>
+      <nuxt-link to="/admin/new-post"
+        ><button class="create-post">Create Post</button></nuxt-link
+      >
+      <button class="logout" type="button" @click="onLogout">Logout</button>
     </section>
     <section class="existing-posts">
       <h1>Existing Posts</h1>
@@ -43,6 +45,31 @@ div {
 }
 button {
   height: 2rem;
-  border-radius: 20px;
+  border-radius: 4px;
+  border: none;
+}
+.create-post,
+.logout {
+  width: 7rem;
+  color: white;
+}
+.create-post {
+  background-color: #00dcff;
+}
+.create-post:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #00dcff;
+}
+.logout:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid #ff5043;
+}
+.logout {
+  background-color: #ff5043;
+}
+h1 {
+  margin-bottom: 0;
 }
 </style>

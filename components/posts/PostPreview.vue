@@ -4,8 +4,8 @@
       <div>
         <img class="image-section" :src="`${thumbnail}`" alt="image" />
       </div>
-      <div>
-        <h1>{{ title }}</h1>
+      <div class="content">
+        <h2>{{ title }}</h2>
         <p>{{ previewText }}</p>
       </div>
     </article>
@@ -48,6 +48,21 @@ export default {
 .image-section {
   height: 10rem;
 }
-article {
+.image-section {
+  box-shadow: 0px 3px 3px 1px #bdbabad1;
+  border-radius: 4px;
+}
+.content {
+  color: black;
+  text-decoration: none !important;
+}
+h2 {
+  margin: 0.3rem;
+  font-size: 1.3rem;
+}
+p {
+  margin-top: 0;
+  font-size: 1rem;
+  font-weight: 500;
 }
 </style>
